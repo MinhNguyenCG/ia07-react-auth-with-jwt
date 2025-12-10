@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "JWT Auth App",
+  title: "JWT Auth",
   description: "React Authentication with JWT (Access + Refresh)",
 };
 

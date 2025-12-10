@@ -34,9 +34,11 @@ export class UserResponseDto {
   updatedAt: Date;
 
   @Exclude()
-  password: string;
+  password?: string;
 
   constructor(partial: Partial<UserResponseDto>) {
     Object.assign(this, partial);
+    // Explicitly delete password to ensure it's never returned
+    delete this.password;
   }
 }

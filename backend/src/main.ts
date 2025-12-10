@@ -1,5 +1,6 @@
 import { NestFactory } from '@nestjs/core';
-import { ValidationPipe } from '@nestjs/common';
+import { ValidationPipe, ClassSerializerInterceptor } from '@nestjs/common';
+import { Reflector } from '@nestjs/core';
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 import { config as loadEnv } from 'dotenv';
 import { AppModule } from './app.module';
@@ -24,6 +25,9 @@ async function bootstrap() {
       transform: true,
     }),
   );
+
+  // Enable class serializer to exclude fields marked with @Exclude()
+  app.useGlobalInterceptors(new ClassSerializerInterceptor(app.get(Reflector)));
 
   // Swagger/OpenAPI configuration
   const swaggerConfig = new DocumentBuilder()

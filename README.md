@@ -1,69 +1,29 @@
 # React Authentication with JWT (Access + Refresh)
 
-A full-stack authentication system implementing JWT access tokens and refresh tokens using React, Next.js, NestJS, and Prisma.
+Hệ thống xác thực full-stack sử dụng JWT access tokens và refresh tokens được xây dựng với React, Next.js, NestJS và Prisma.
 
-## 🚀 Features
+## 🚀 Bắt Đầu Nhanh
 
-- ✅ **JWT Authentication** - Secure token-based authentication
-- ✅ **Access & Refresh Tokens** - Dual token system for enhanced security
-- ✅ **Auto Token Refresh** - Seamless token refresh on expiration using Axios interceptors
-- ✅ **Protected Routes** - Route-level authentication guards
-- ✅ **React Query Integration** - Powerful server state management
-- ✅ **React Hook Form** - Form validation and management
-- ✅ **Zustand Store** - Lightweight state management for access tokens
-- ✅ **Responsive UI** - Beautiful, modern interface with Tailwind CSS
-- ✅ **Error Handling** - Comprehensive error handling and user feedback
-- ✅ **TypeScript** - Full type safety across frontend and backend
+### Yêu Cầu Hệ Thống
 
-## 🏗️ Tech Stack
+- Node.js 18+ và npm
+- Cơ sở dữ liệu PostgreSQL
+- Docker (tùy chọn, để chạy PostgreSQL)
 
-### Frontend
+### Cài Đặt & Chạy
 
-- **Next.js 16** - React framework with App Router
-- **React 19** - UI library
-- **TypeScript** - Type safety
-- **Tailwind CSS v4** - Styling
-- **Axios** - HTTP client with interceptors
-- **React Query (TanStack Query)** - Server state management
-- **React Hook Form** - Form handling
-- **Zustand** - Client state management
-
-### Backend
-
-- **NestJS** - Node.js framework
-- **Prisma** - ORM for database access
-- **PostgreSQL** - Database
-- **JWT** - Token generation and validation
-- **Bcrypt** - Password hashing
-- **Passport** - Authentication middleware
-
-## 📋 Prerequisites
-
-- Node.js 18+ and npm
-- PostgreSQL database
-- Docker (optional, for running PostgreSQL)
-
-## 🔧 Installation & Setup
-
-### 1. Clone the repository
-
-```bash
-git clone <repository-url>
-cd ia07-react-auth-with-jwt
-```
-
-### 2. Setup Backend
+#### 1. Cài Đặt Backend
 
 ```bash
 cd backend
 
-# Install dependencies
+# Cài đặt các dependencies
 npm install
 
-# Create .env file
+# Tạo file .env
 cp .env.example .env
 
-# Update .env with your database configuration
+# Cập nhật .env với cấu hình của bạn:
 # DATABASE_URL="postgresql://postgres:postgres@localhost:5432/ia07_auth?schema=public"
 # JWT_SECRET="your-super-secret-jwt-key-change-this-in-production"
 # JWT_REFRESH_SECRET="your-super-secret-refresh-jwt-key-change-this-in-production"
@@ -71,68 +31,95 @@ cp .env.example .env
 # JWT_REFRESH_EXPIRATION="7d"
 # PORT=3001
 
-# Start PostgreSQL (if using Docker)
+# Khởi động PostgreSQL (nếu sử dụng Docker)
 docker-compose up -d
 
-# Run Prisma migrations
+# Chạy Prisma migrations
 npx prisma migrate dev
 
-# Generate Prisma Client
+# Tạo Prisma Client
 npx prisma generate
 
-# Start development server
+# Khởi động development server
 npm run start:dev
 ```
 
-Backend will run on `http://localhost:3001`
+**Backend chạy tại:** `http://localhost:3001`  
+**Tài liệu API (Swagger):** `http://localhost:3001/api`
 
-**API Documentation (Swagger):** `http://localhost:3001/api`
-
-### 3. Setup Frontend
+#### 2. Cài Đặt Frontend
 
 ```bash
 cd frontend
 
-# Install dependencies
+# Cài đặt các dependencies
 npm install
 
-# Create .env.local file (already created, or create from example)
+# Tạo file .env.local (nếu chưa có)
 # NEXT_PUBLIC_API_URL=http://localhost:3001
 
-# Start development server
+# Khởi động development server
 npm run dev
 ```
 
-Frontend will run on `http://localhost:3000`
+**Frontend chạy tại:** `http://localhost:3000`
 
-## 📚 API Documentation
+### Truy Cập Dự Án
 
-Once the backend is running, you can access the interactive Swagger API documentation at:
+- **Ứng dụng Frontend:** http://localhost:3000
+- **Backend API:** http://localhost:3001
+- **Tài liệu API (Swagger):** http://localhost:3001/api
 
-**`http://localhost:3001/api`**
+## 🎯 Tính Năng
 
-The Swagger UI provides:
+- ✅ **Xác Thực JWT** - Xác thực dựa trên token an toàn
+- ✅ **Access & Refresh Tokens** - Hệ thống token kép để tăng cường bảo mật
+- ✅ **Tự Động Làm Mới Token** - Tự động làm mới token khi hết hạn sử dụng Axios interceptors
+- ✅ **Bảo Vệ Routes** - Bảo vệ routes ở cấp độ authentication guards
+- ✅ **Tích Hợp React Query** - Quản lý trạng thái server mạnh mẽ
+- ✅ **React Hook Form** - Xác thực và quản lý form
+- ✅ **Zustand Store** - Quản lý trạng thái nhẹ cho access tokens
+- ✅ **Giao Diện Responsive** - Giao diện đẹp, hiện đại với Tailwind CSS
+- ✅ **Xử Lý Lỗi** - Xử lý lỗi toàn diện và phản hồi người dùng
+- ✅ **TypeScript** - Đảm bảo type safety đầy đủ cho frontend và backend
 
-- Interactive API testing
-- Request/response schemas
-- Authentication testing
-- Complete API reference
+## 🏗️ Tech Stack
 
-## 🌐 API Endpoints
+### Frontend
+
+- **Next.js 16** - React framework với App Router
+- **React 19** - Thư viện UI
+- **TypeScript** - Đảm bảo type safety
+- **Tailwind CSS v4** - Styling
+- **Axios** - HTTP client với interceptors
+- **React Query (TanStack Query)** - Quản lý trạng thái server
+- **React Hook Form** - Xử lý form
+- **Zustand** - Quản lý trạng thái client
+
+### Backend
+
+- **NestJS** - Node.js framework
+- **Prisma** - ORM để truy cập database
+- **PostgreSQL** - Database
+- **JWT** - Tạo và xác thực token
+- **Bcrypt** - Mã hóa mật khẩu
+- **Passport** - Authentication middleware
+
+## 📚 API Endpoints
 
 ### Authentication Endpoints
 
-| Method | Endpoint         | Description          | Auth Required       |
-| ------ | ---------------- | -------------------- | ------------------- |
-| POST   | `/auth/register` | Register new user    | No                  |
-| POST   | `/auth/login`    | Login user           | No                  |
-| POST   | `/auth/refresh`  | Refresh access token | Yes (Refresh Token) |
-| POST   | `/auth/logout`   | Logout user          | Yes                 |
-| GET    | `/auth/me`       | Get current user     | Yes                 |
+| Method | Endpoint         | Mô Tả                             | Yêu Cầu Xác Thực   |
+| ------ | ---------------- | --------------------------------- | ------------------ |
+| POST   | `/auth/register` | Đăng ký người dùng mới            | Không              |
+| POST   | `/auth/login`    | Đăng nhập người dùng              | Không              |
+| POST   | `/auth/refresh`  | Làm mới access token              | Có (Refresh Token) |
+| POST   | `/auth/logout`   | Đăng xuất người dùng              | Có                 |
+| GET    | `/auth/me`       | Lấy thông tin người dùng hiện tại | Có                 |
 
-### Request/Response Examples
+### Ví Dụ Request/Response
 
-#### Register
+#### Đăng Ký
 
 ```bash
 POST /auth/register
@@ -160,7 +147,7 @@ Response:
 }
 ```
 
-#### Login
+#### Đăng Nhập
 
 ```bash
 POST /auth/login
@@ -171,10 +158,10 @@ Content-Type: application/json
   "password": "password123"
 }
 
-Response: (Same as register)
+Response: (Giống như đăng ký)
 ```
 
-#### Refresh Token
+#### Làm Mới Token
 
 ```bash
 POST /auth/refresh
@@ -191,7 +178,7 @@ Response:
 }
 ```
 
-#### Get Current User
+#### Lấy Thông Tin Người Dùng Hiện Tại
 
 ```bash
 GET /auth/me
@@ -207,47 +194,47 @@ Response:
 }
 ```
 
-## 🔐 Authentication Flow
+## 🔐 Luồng Xác Thực
 
-### 1. Login/Register Flow
+### 1. Luồng Đăng Nhập/Đăng Ký
 
 ```
-User → Login Form → POST /auth/login → Backend
-                                          ↓
-                                    Validate Credentials
-                                          ↓
-                                    Generate Tokens
-                                          ↓
+Người Dùng → Form Đăng Nhập → POST /auth/login → Backend
+                                                      ↓
+                                                Xác Thực Thông Tin
+                                                      ↓
+                                                Tạo Tokens
+                                                      ↓
 Frontend ← Access Token (Memory) + Refresh Token (localStorage)
     ↓
 Dashboard
 ```
 
-### 2. Protected Route Access
+### 2. Truy Cập Route Được Bảo Vệ
 
 ```
-User → Protected Route → Axios Interceptor → Add Access Token
-                                                    ↓
-                                              Backend validates
-                                                    ↓
-                                              Return Data
+Người Dùng → Protected Route → Axios Interceptor → Thêm Access Token
+                                                          ↓
+                                                    Backend xác thực
+                                                          ↓
+                                                    Trả Về Dữ Liệu
 ```
 
-### 3. Token Refresh Flow
+### 3. Luồng Làm Mới Token
 
 ```
-User → API Request → 401 Unauthorized
-                          ↓
-                    Axios Interceptor detects 401
-                          ↓
-                    POST /auth/refresh with Refresh Token
-                          ↓
-                    Get New Tokens
-                          ↓
-                    Update Access Token (Memory)
-                    Update Refresh Token (localStorage)
-                          ↓
-                    Retry Original Request
+Người Dùng → API Request → 401 Unauthorized
+                              ↓
+                    Axios Interceptor phát hiện 401
+                              ↓
+                    POST /auth/refresh với Refresh Token
+                              ↓
+                    Nhận Tokens Mới
+                              ↓
+                    Cập Nhật Access Token (Memory)
+                    Cập Nhật Refresh Token (localStorage)
+                              ↓
+                    Thử Lại Request Ban Đầu
 ```
 
 ## 📁 Project Structure
@@ -315,22 +302,22 @@ frontend/
 └── package.json
 ```
 
-## 🔑 Key Implementation Details
+## 🔑 Chi Tiết Triển Khai
 
-### Token Storage Strategy
+### Chiến Lược Lưu Trữ Token
 
-- **Access Token**: Stored in memory using Zustand (cleared on page refresh)
-- **Refresh Token**: Stored in localStorage (persists across page refreshes)
+- **Access Token**: Lưu trong memory sử dụng Zustand (bị xóa khi refresh trang)
+- **Refresh Token**: Lưu trong localStorage (giữ nguyên sau khi refresh trang)
 
-This approach provides a balance between security and user experience:
+Cách tiếp cận này cân bằng giữa bảo mật và trải nghiệm người dùng:
 
-- Access tokens are short-lived (15 minutes) and not accessible via XSS
-- Refresh tokens are longer-lived (7 days) and used only to obtain new access tokens
-- On page refresh, the app uses the refresh token to get a new access token
+- Access tokens có thời gian sống ngắn (15 phút) và không thể truy cập qua XSS
+- Refresh tokens có thời gian sống dài hơn (7 ngày) và chỉ được sử dụng để lấy access tokens mới
+- Khi refresh trang, ứng dụng sử dụng refresh token để lấy access token mới
 
 ### Axios Interceptors
 
-**Request Interceptor**: Automatically attaches the access token to all requests
+**Request Interceptor**: Tự động đính kèm access token vào tất cả các request
 
 ```typescript
 apiClient.interceptors.request.use((config) => {
@@ -342,15 +329,15 @@ apiClient.interceptors.request.use((config) => {
 });
 ```
 
-**Response Interceptor**: Handles 401 errors and refreshes tokens automatically
+**Response Interceptor**: Xử lý lỗi 401 và tự động làm mới tokens
 
 ```typescript
 apiClient.interceptors.response.use(
   (response) => response,
   async (error) => {
     if (error.response?.status === 401) {
-      // Refresh token logic
-      // Retry original request
+      // Logic làm mới token
+      // Thử lại request ban đầu
     }
     return Promise.reject(error);
   }
@@ -359,69 +346,23 @@ apiClient.interceptors.response.use(
 
 ### Protected Routes
 
-Routes are protected using custom hooks:
+Routes được bảo vệ bằng các custom hooks:
 
 ```typescript
 // Protected route
 export default function DashboardPage() {
-  useAuthCheck(); // Redirects to /login if not authenticated
+  useAuthCheck(); // Chuyển hướng đến /login nếu chưa xác thực
   // ...
 }
 
 // Guest route (login/register)
 export default function LoginPage() {
-  useGuestCheck(); // Redirects to /dashboard if authenticated
+  useGuestCheck(); // Chuyển hướng đến /dashboard nếu đã xác thực
   // ...
 }
 ```
 
-## 🧪 Testing the Application
-
-1. **Register a new user**
-
-   - Navigate to `http://localhost:3000/register`
-   - Fill in the form and submit
-   - You should be redirected to the dashboard
-
-2. **Test protected route**
-
-   - Try accessing `/dashboard` without logging in
-   - You should be redirected to `/login`
-
-3. **Test logout**
-
-   - Click the logout button in the navbar
-   - You should be redirected to the login page
-
-4. **Test token refresh**
-   - Wait 15 minutes (or change JWT_EXPIRATION to 1m for testing)
-   - Make a request to a protected route
-   - The token should refresh automatically without logging you out
-
-## 🚀 Deployment
-
-### Backend Deployment (Railway/Render/Fly.io)
-
-1. Push your code to GitHub
-2. Connect your repository to Railway/Render
-3. Add environment variables:
-   - `DATABASE_URL`
-   - `JWT_SECRET`
-   - `JWT_REFRESH_SECRET`
-   - `JWT_EXPIRATION`
-   - `JWT_REFRESH_EXPIRATION`
-   - `PORT`
-4. Deploy!
-
-### Frontend Deployment (Vercel)
-
-1. Push your code to GitHub
-2. Import project to Vercel
-3. Add environment variable:
-   - `NEXT_PUBLIC_API_URL` (your backend URL)
-4. Deploy!
-
-## 📝 Environment Variables
+## 📝 Biến Môi Trường
 
 ### Backend (.env)
 
@@ -440,18 +381,25 @@ PORT=3001
 NEXT_PUBLIC_API_URL=http://localhost:3001
 ```
 
-## 🤝 Contributing
+## 📖 Tài Liệu Bổ Sung
 
-Contributions are welcome! Please feel free to submit a Pull Request.
+- [API Documentation](./API.md) - Tài liệu API chi tiết
+- [Deployment Guide](./DEPLOYMENT.md) - Hướng dẫn triển khai toàn diện
+- [Swagger Documentation](./SWAGGER.md) - Cài đặt và sử dụng Swagger
+- [Project Summary](./PROJECT_SUMMARY.md) - Tổng quan và kiến trúc dự án
 
-## 📄 License
+## 🤝 Đóng Góp
 
-This project is open source and available under the MIT License.
+Mọi đóng góp đều được chào đón! Vui lòng gửi Pull Request.
 
-## 👨‍💻 Author
+## 📄 Giấy Phép
 
-Built with ❤️ as part of IA07 course assignment
+Dự án này là mã nguồn mở và có sẵn theo giấy phép MIT License.
 
-## 📞 Support
+## 👨‍💻 Tác Giả
 
-For questions or issues, please open an issue on GitHub.
+Được xây dựng với ❤️ như một phần của bài tập khóa học IA07
+
+## 📞 Hỗ Trợ
+
+Đối với câu hỏi hoặc vấn đề, vui lòng mở issue trên GitHub.

@@ -2,6 +2,12 @@
 
 Hệ thống xác thực full-stack sử dụng JWT access tokens và refresh tokens được xây dựng với React, Next.js, NestJS và Prisma.
 
+## 🌐 Hosting Platform
+
+- **Frontend (Vercel):** https://ia07-react-auth-with-jwt.vercel.app/
+- **Backend (Render):** https://ia07-react-auth-with-jwt.onrender.com
+- **Database (Neon):** PostgreSQL cloud database
+
 ## 🚀 Bắt Đầu Nhanh
 
 ### Yêu Cầu Hệ Thống

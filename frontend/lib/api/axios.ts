@@ -13,6 +13,7 @@ export const apiClient = axios.create({
   headers: {
     "Content-Type": "application/json",
   },
+  withCredentials: true, // Enable credentials for CORS
 });
 
 // Request interceptor - Attach access token
@@ -104,6 +105,7 @@ apiClient.interceptors.response.use(
         { refreshToken },
         {
           headers: { "Content-Type": "application/json" },
+          withCredentials: true,
         }
       );
 
